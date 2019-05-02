@@ -1,0 +1,48 @@
+_main:
+
+
+;; Read 13 characters from console
+;; pre: | r1 - fill with |
+;; post: | r1 - pointer to start | r2 - size |  
+read13: ;
+    push r3
+    push r4
+
+    mov r3, 10
+    mov r4, 
+
+    pop r4
+    pop r3
+    ret
+
+;mov r1, 1 ; sys_console_out
+;mov r2, 72 
+;syscall
+;mov r2, 101
+;syscall 
+;mov r2, 108
+;syscall 
+;mov r2, 108
+;syscall 
+;mov r2, 111
+;syscall 
+;mov r2, 32 
+;syscall    
+;mov r2, 119
+;syscall 
+;mov r2, 111
+;syscall 
+;mov r2, 114
+;syscall 
+;mov r2, 108
+;syscall 
+;mov r2, 100
+;syscall
+;mov r2, 33
+;syscall
+;mov r2, 10
+;syscall
+
+mov r1, 0 ; sys_exit
+mov r2, 0 ; code 0
+syscall

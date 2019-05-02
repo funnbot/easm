@@ -1,0 +1,20 @@
+_main:
+    ; Some kind of loop
+    mov r1, 0 ; incrementor
+    mov r2, 10 ; loop count
+
+    loop:
+    ; do thing
+    push r1 ; save state
+    push r2 ;
+
+    mov r1, 97 ; 'a'
+    mov r2, 0 ; console out
+    syscall ; print r1 as ascii to console
+
+    pop r2 ;
+    pop r1 ; restore state
+
+    inc r1 ; increment
+    cmp r1, r2;
+    jnz loop ; xor will be zero if equal

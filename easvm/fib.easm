@@ -1,0 +1,45 @@
+_main:
+    mov r1, 3 ; sys_read, n
+    syscall
+    mov r10, r2 ; N
+    mov r9, 0 ; counter
+
+    mov r5, 1 ; value 1
+    mov r6, 1 ; value 2
+
+fib_while:
+    cmp r9, r10
+    jz exit
+
+    cmp r9, 0 ; for n = 0
+    jnz fib_0
+    mov r2, 0
+    jz print
+    fib_0:
+    cmp r9, 1 ; for n = 1
+    mov r2, 1
+    jz print
+    fib_1:
+
+    mov r2, r5 ; temp val
+    add r5, r6 ; next
+    mov r6, r2 ;
+
+print:
+    mov r1, 2 ; print int
+    syscall
+    mov r1, 1 ; print char
+    mov r2, 32 ; space
+    syscall
+
+    inc r9
+    jmp fib_while
+
+exit:
+    mov r1, 1
+    mov r2, 10
+    syscall ; newline
+
+    mov r1, 0
+    mov r2, 0
+    syscall

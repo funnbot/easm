@@ -1,0 +1,71 @@
+; r1-r16; 64bit registers - qwords
+; d1-d16; 32bit pieces of registers - dwords
+; w1-w16; 16bit pieces of registers - words
+; b1-b16; 8bit pieces of registers - bytes
+
+; flags 000 [non-zero, pos, neg]
+
+_main:
+
+mov r1, 0;
+
+add x, y ; add x and y place in x
+sub x, y
+mul x, y
+div x, y
+mod x, y
+
+            
+_main: ; always the entry label of the program
+    mov x, y ; copy the contents of y to x
+    mov b1, *len ; *x is a dereference, move the data at pointer len to b1
+
+    add x, y ; add x and y place in x
+    sub x, y
+    mul x, y
+    div x, y
+    mod x, y
+
+    or x, y
+    and x, y
+    xor x, y
+
+    inc x
+    dec x
+
+    push x ; push the value of x onto the stack
+    pop x ; pop the value on the stack into x
+
+    ldr x, y ; load from memory, into x from pointer y
+    str x, y ; store to memory, store x at pointer y
+
+    jmp l ; jump to label l
+    jnz x, l ; jump if x is not zero to label l
+    jz x, l ; jump if x is zero to label l
+
+    call henlo; call an external label and return to here
+
+    ; Some kind of loop
+    mov r1, 0 ; incrementor
+    mov r2, 10 ; loop count
+
+    loop:
+    ; do thing
+    push r1 ; save state
+    push r2 ;
+
+    mov r1, 97 ; 'a'
+    mov r2, 0 ; console out
+    call out ; print r1 as ascii to console
+
+    pop r2 ;
+    pop r1 ; restore state
+
+    inc r1 ; increment
+    mov r3, r2 ; copy loop count to r3
+    xor r3, r1 ; xor together incrementor and loop count
+    jnz r3, loop ; xor will be zero if equal
+
+
+    mov r1, 0 ; ret from main exit code in r1
+    ret ; return from label instead of falling through, cll must call a label that returns

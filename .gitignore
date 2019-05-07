@@ -31,5 +31,5 @@
 *.out
 *.app
 
-ceasm/.vscode/ipch
-easvm/.vscode/ipch
+.DS_Store
+ipch/

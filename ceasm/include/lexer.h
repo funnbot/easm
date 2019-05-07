@@ -7,17 +7,17 @@
 #include "token.h"
 
 class Lexer {
-   public:
-    Lexer(std::istream& src);
-    std::vector<Token>& scanTokens();
-
-   private:
     std::vector<Token> tokens;
     std::istream& src;
     std::string lexeme;
     char current;
     int line = 1;
 
+   public:
+    Lexer(std::istream& src);
+    std::vector<Token>& scanTokens();
+
+   private:
     void scanToken();
 
     char advance();
